@@ -86,10 +86,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\ItemsControlHelper.cs" />
+    <Compile Include="Data\HierarchicalDataTemplate.cs" />
+    <Compile Include="ExpanderView\ExpanderView.cs" />
+    <Compile Include="HeaderedItemsControl\HeaderedItemsControl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RatingControl\Rating.cs" />
     <Compile Include="RatingControl\RatingItem.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
   </PropertyGroup>

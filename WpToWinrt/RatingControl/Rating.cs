@@ -1,4 +1,5 @@
-﻿//Ported from Windows phone toolkit
+﻿//The original control is part of https://phone.codeplex.com/ and this one is ported to Winrt.
+
 
 // (c) Copyright Microsoft Corporation.
 // This source is subject to the Microsoft Public License (Ms-PL).
