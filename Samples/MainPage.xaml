@@ -14,8 +14,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,12">
-            <TextBlock x:Name="ApplicationTitle" 
-                       Text="WP to Winrt" 
+            <TextBlock x:Uid="AppTitleTb"
                        FontSize="{StaticResource TextStyleMediumFontSize}"/>
         </StackPanel>
         <Grid Margin="12" Grid.Row="1" x:Name="ContentGrid" >

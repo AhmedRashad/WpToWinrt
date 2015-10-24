@@ -18,10 +18,10 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="WP to Winrt"
+            <TextBlock x:Uid="AppTitleTb"
                        FontSize="{StaticResource TextStyleMediumFontSize}"/>
             <TextBlock Text="rating control" 
-                       Margin="12,12,0,0" 
+                       Margin="0,12,0,0" 
                        FontSize="{StaticResource TextStyleExtraLargePlusFontSize}"/>
         </StackPanel>
 
