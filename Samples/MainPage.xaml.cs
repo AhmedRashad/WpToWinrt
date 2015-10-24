@@ -12,37 +12,64 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WpToWinrt.Common;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
 
 namespace Samples
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
+        private readonly NavigationHelper _navigationHelper;
+        private SampleItem[] _samples;
+
         public MainPage()
         {
             this.InitializeComponent();
-
+            _navigationHelper = new NavigationHelper(this);
             this.NavigationCacheMode = NavigationCacheMode.Required;
+            InitializeData();
+            SamplesListView.ItemsSource = _samples;
         }
 
-        /// <summary>
-        /// Invoked when this page is about to be displayed in a Frame.
-        /// </summary>
-        /// <param name="e">Event data that describes how this page was reached.
-        /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            // TODO: Prepare page for display here.
-
-            // TODO: If your application contains multiple pages, ensure that you are
-            // handling the hardware Back button by registering for the
-            // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
-            // If you are using the NavigationHelper provided by some templates,
-            // this event is handled for you.
+            base.OnNavigatedTo(e);
+            _navigationHelper.OnNavigatedTo(e);
         }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            _navigationHelper.OnNavigatedFrom(e);
+        }
+
+        private void InitializeData()
+        {
+            _samples = new SampleItem[]
+            {
+            new SampleItem(typeof(RatingControlSample),"Rating Control","simple control for star-based rating"),
+
+            };
+        }
+
+        private void SamplesListView_OnItemClick(object sender, ItemClickEventArgs e)
+        {
+            var sample = (SampleItem)e.ClickedItem;
+            Frame.Navigate(sample.TargetPage);
+        }
+    }
+
+    public class SampleItem
+    {
+        public SampleItem(Type targetPage, string header, string description)
+        {
+            TargetPage = targetPage;
+            Header = header;
+            Description = description;
+        }
+
+        public Type TargetPage { get; private set; }
+        public string Header { get; private set; }
+        public string Description { get; private set; }
     }
 }

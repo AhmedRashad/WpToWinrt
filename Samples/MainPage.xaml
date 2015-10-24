@@ -7,8 +7,36 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
-
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,12">
+            <TextBlock x:Name="ApplicationTitle" 
+                       Text="WP to Winrt" 
+                       FontSize="{StaticResource TextStyleMediumFontSize}"/>
+        </StackPanel>
+        <Grid Margin="12" Grid.Row="1" x:Name="ContentGrid" >
+            <ListView x:Name="SamplesListView"
+                      IsItemClickEnabled="True"
+                      ItemClick="SamplesListView_OnItemClick">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Header}"
+                                   FontSize="{StaticResource TextStyleLargeFontSize}"
+                                   Foreground="White"
+                                   />
+                            <TextBlock Text="{Binding Description}"
+                                   FontSize="{StaticResource TextStyleMediumFontSize}"
+                                   Foreground="LightGray"
+                                   />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
 </Page>
