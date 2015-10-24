@@ -4,7 +4,7 @@
     xmlns:controls="using:WpToWinrt.Controls">
 
     <!--shared between controls-->
-    <SolidColorBrush x:Key="SubtleBrush" Color="Gray"/>
+    
 
     <!-- Start of Rating Control Styles-->
     <Style TargetType="controls:Rating">
@@ -82,7 +82,7 @@
         <Setter Property="UnfilledItemStyle">
             <Setter.Value>
                 <Style TargetType="controls:RatingItem">
-                    <Setter Property="Background" Value="{StaticResource SubtleBrush}" />
+                    <Setter Property="Background" Value="{StaticResource ApplicationSecondaryForegroundThemeBrush}" />
                 </Style>
             </Setter.Value>
         </Setter>
@@ -275,7 +275,7 @@
                             <Line x:Name="Line" Grid.Row="1" Grid.Column="1"
                                   Grid.RowSpan="2"
                                   HorizontalAlignment="Left"
-                                  Stroke="{StaticResource SubtleBrush}" 
+                                  Stroke="{StaticResource ApplicationSecondaryForegroundThemeBrush}" 
                                   StrokeThickness="3" X1="0" Y1="0" X2="0" Y2="1"
                                   Stretch="Fill"/>
                             <ContentControl x:Name="NonExpandableContent"
