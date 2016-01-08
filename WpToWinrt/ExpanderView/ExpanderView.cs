@@ -454,8 +454,18 @@ namespace WpToWinrt.Controls
         {
             if (null != _itemsCanvas && null != _presenter && IsExpanded)
             {
-                // Already expanded, so we need to update the height of the canvas directly.
-                _itemsCanvas.Height = _presenter.DesiredSize.Height;
+                if (double.IsNaN(_itemsCanvas.Height))
+                {
+                    //It didn't expand before, Go to collapsed state without transitions
+                    VisualStateManager.GoToState(this, CollapsedState, false);
+                    //Then Expand Control
+                    UpdateVisualState(true);
+                }
+                else
+                {
+                    // Already expanded, so we need to update the height of the canvas directly.
+                    _itemsCanvas.Height = _presenter.DesiredSize.Height;
+                }
             }
         }
 
